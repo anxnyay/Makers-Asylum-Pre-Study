@@ -16,9 +16,9 @@ DHT dht(PIN_DHT, DHTTYPE);
 
 /************************* WiFi & Adafruit IO Setup *****************************/
 #define WLAN_SSID       "Ananya"
-#define WLAN_PASS       "baileybossdog"
+#define WLAN_PASS       "."
 #define AIO_USERNAME    "anxnyay"
-#define AIO_KEY         "aio_aYFl39a9BWHMQoF9bJxLVK8gK5T8"
+#define AIO_KEY         "."
 
 WiFiClient client;
 Adafruit_MQTT_Client mqtt(&client, "io.adafruit.com", 1883, AIO_USERNAME, AIO_KEY);
