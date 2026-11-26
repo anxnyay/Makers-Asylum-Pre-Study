@@ -4,17 +4,17 @@
 #include "Adafruit_MQTT_Client.h"
 #include "DHT.h"
 
-/************************* Pin Definitions *********************************/
+//Pin Definitions
 #define PIN_NEOPIXEL 13
 #define NUM_PIXELS   16
 #define PIN_DHT      15    
 #define DHTTYPE      DHT11
 
-/************************* Object Initialization ***************************/
+//Object Initialisation
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_PIXELS, PIN_NEOPIXEL, NEO_GRB + NEO_KHZ800);
 DHT dht(PIN_DHT, DHTTYPE);
 
-/************************* WiFi & Adafruit IO Setup *****************************/
+//WiFi & Adafruit IO Setup
 #define WLAN_SSID       "Ananya"
 #define WLAN_PASS       "."
 #define AIO_USERNAME    "anxnyay"
@@ -23,11 +23,11 @@ DHT dht(PIN_DHT, DHTTYPE);
 WiFiClient client;
 Adafruit_MQTT_Client mqtt(&client, "io.adafruit.com", 1883, AIO_USERNAME, AIO_KEY);
 
-// --- Publishers (Outgoing Sensor Data to Adafruit IO Dashboard) ---
+//Publishers (Outgoing Sensor Data to Adafruit IO Dashboard)
 Adafruit_MQTT_Publish temp_publish = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/feeds/temperature");
 Adafruit_MQTT_Publish hum_publish = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/feeds/humidity");
 
-/************************* Global Variables *********************************/
+//Global Variables
 unsigned long lastSensorUpdate = 0;
 
 void MQTT_connect();
